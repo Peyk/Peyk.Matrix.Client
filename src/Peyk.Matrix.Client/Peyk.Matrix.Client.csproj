@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard1.1</TargetFramework>
+        <VersionPrefix>0.1.0</VersionPrefix>
+        <VersionSuffix>alpha0</VersionSuffix>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <Title>Matrix HTTP Client</Title>
+        <Description>
+        </Description>
+        <Authors>Poulad</Authors>
+        <PackageIconUrl>https://avatars1.githubusercontent.com/u/46387840</PackageIconUrl>
+        <PackageProjectUrl>https://github.com/Peyk/Peyk.Matrix.Client</PackageProjectUrl>
+        <License>https://raw.githubusercontent.com/Peyk/Peyk.Matrix.Client/master/LICENSE</License>
+        <RepositoryUrl>https://github.com/Peyk/Peyk.Matrix.Client.git</RepositoryUrl>
+        <PackageTags>Matrix;Peyk;HTTP;Client-API</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+dist: trusty
+sudo: required
+language: node_js
+node_js:
+  - node
+branches:
+  except:
+  - gh-pages
+notifications:
+  email: false
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: Build
+      name: "Build Docker Images"
+      install: cd scripts && npm ci && cd ..
+      script: node scripts/build
+      env:
+        # DEPLOY_SETTINGS_JSON='{"CI":[{"type":"docker","options":{"user":"","pass":""}}]}'
+        - secure: RFPUEsX7zW7SHEaZYtdh4rxOIaPR36Ug6BXZMYHP/fNa+NviwZyuaCHLl6meXrnUJPJNxaPgFu6+XAbOH3I0GfUReJEjb2HcMDIzdTfHJctIDrsORS5Wx1ukJ/e2SOFlHqH6EEB4JzUkMncjKF/i0Mz+EjIyiig4rUIVn31gURD8ZlFaT0jNxK2XE1FIsO4L0Y9FFUrJyy669W1FcJ/m3czsLMyvon3L58bID2S5gYrevbevTW3ZrO5bpInhBE3mAYGKFmgQgW379cqFqrXusfJUbLDlvXWtkos57qpkErohIpT2Eo5jbYi+9ERQgoK073mWB/OLZuX44N8LlfMVaCzfpC3R2/upssYoWyrYQywA8/rqAe8r2kFd3sap/jWUoYYsxAoY2uiu0/B87hZvUMr3pebq3+qW/kbX55jGmJoszaTCKIWppUIoLynsCSmV/90XUK4Lm0EYkIpQWZ7LlB2aord4NPdDmTU140XLieLzvMojpMp3HGyrNFR6kdS1qbqJiYhyNVPVsv7MGLR7TxiqDjPTFFYP5Y+I840TWzkvdSJToug2OdYvMe1UlBG5UnA2GY/tICEYOxcJzaRbcMiJR3X0NtrtOhtwf5FbZrSpLAT23LxTlarwM35MffzeslG+epDA1/C5vTULq4CP2uWlGpzHSjsQ7DYRatEqAto=
+
+    - stage: Test
+      name: "Unit Tests (Debug)"
+      env:
+        - image_tag=peyk/matrix-client:solution-debug
+      script: echo ToDo
+    - name: "Unit Tests (Release)"
+      env:
+        - image_tag=peyk/matrix-client:solution-release
+      script: echo ToDo
+
+
+# Disable "Build pushed pull requests"
